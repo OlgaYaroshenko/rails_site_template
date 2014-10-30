@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p align="center"><%= image_tag @partner.image.url(:small_m), class: "img-circle" %></p>
+<p>
+  <strong>Name:</strong>
+  <%= @partner.name %>
+</p>
+
+<p>
+  <strong>Site:</strong>
+  <%= @partner.site %>
+</p>
+
+<p>
+  <strong>Visible:</strong>
+  <%= @partner.visible %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @partner.role %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @partner.country %>
+</p>
+
+      <%= link_to (t 'button.edit'), edit_partner_path(@partner), class: "btn btn-sm btn-warning" %> |
+      <%= link_to (t 'button.back'), partners_path, class: "btn btn-sm btn-primary" %>
+
+    </div>
+  </div>
+</div>

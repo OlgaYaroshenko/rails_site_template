@@ -1,0 +1,62 @@
+<h3><p class="text-center"><%= (t 'newsletters.listing_newsletters')%></p></h3>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th><%= (t 'newsletters.to')%></th>
+      <th><%= (t 'newsletters.language')%></th>
+      <th><%= (t 'newsletters.subject')%></th>
+      <th><%= (t 'newsletters.blog')%></th>
+      <th><%= (t 'newsletters.blog_title')%></th>
+      <th><%= (t 'newsletters.blog_content')%></th>
+      <th><%= (t 'newsletters.created_at')%></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <%= will_paginate %>
+  <tbody>
+    <% @newsletters.each do |newsletter| %>
+      <tr>
+        <td><%= newsletter.to %></td>
+        <td><%= newsletter.language %></td>
+        <td><%= newsletter.subject %></td>
+        <td><%= newsletter.blog_id %></td>
+        <td>
+          <% if newsletter.blog_id.nil? || newsletter.blog_id == 0 %>
+              <%= (t 'not_found') %>
+          <% elsif Blog.where(id: newsletter.blog_id).take.nil? %>
+              <%= (t 'not_found') %>
+          <% else %>
+              <%= Blog.where(id: newsletter.blog_id).take.title %>
+          <% end %>
+        </td>
+        <td>
+          <% if newsletter.blog_id.nil? || newsletter.blog_id == 0 %>
+              <%= (t 'not_found') %>
+          <% elsif Blog.where(id: newsletter.blog_id).take.nil? %>
+              <%= (t 'not_found') %>
+          <% else %>
+              <%= Blog.where(id: newsletter.blog_id).take.content %>
+          <% end %>
+        </td>
+        <td><%= newsletter.created_at.strftime("%d/%m/%Y - %H:%M:%S") %></td>
+        <td><%= link_to (I18n.t 'button.show'), newsletter, class: "btn btn-sm btn-primary" %></td>
+        <td><%= link_to (I18n.t 'button.edit'), edit_newsletter_path(newsletter), class: "btn btn-sm btn-warning" %></td>
+        <td><%= link_to (I18n.t 'button.delete'), newsletter, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to (I18n.t 'newsletters.new'), new_newsletter_path, class: "btn btn-sm btn-primary" %>
+    </div>
+  </div>
+</div>
+<%= will_paginate %>

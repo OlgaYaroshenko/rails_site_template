@@ -1,0 +1,43 @@
+<%= form_for(@blog) do |f| %>
+  <% if @blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+
+      <ul>
+      <% @blog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+  <div class="field">
+    <%= f.label (t 'blog.title') %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label (t 'blog.content') %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <p align="center"><%= image_tag @blog.picture.url(:thumb) %></p>
+    <%= label_tag (t 'picture') %>
+    <%= f.file_field :picture %>
+  </div>
+  <div class="field">
+    <%= f.label (t 'blog.language') %><br>
+    <%= f.select :language, options_for_select([[(t 'language.en'), "EN"], [(t 'language.ru'), "RU"]], selected: :option, :selected => @blog.language) %>
+  </div>
+    <div class="field">
+      <%= f.label (t 'blog.content_type') %><br>
+      <%= f.select :content_type, options_for_select([[(t 'blog.news'), "news"], [(t 'blog.teleport_saas_system'), "saas"], [(t 'blog.specials'), "specials"], [(t 'blog.companies_news'), "companies_news"]], selected: :option, :selected => @blog.content_type) %>
+    </div>
+  <div class="actions">
+    <%= f.submit (t 'button.ok'), class: "btn btn-sm btn-primary" %>
+  </div>
+<% end %>
+</div>
+</div>
+</div>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+<p>
+  <strong><%= (t 'blog.title') %>:</strong>
+  <%= @blog.title %>
+</p>
+
+<p>
+  <strong><%= (t 'blog.content') %>:</strong>
+  <%= @blog.content %>
+</p>
+
+<p>
+  <strong><%= (t 'blog.language') %>:</strong>
+  <%= @blog.language %>
+</p>
+
+<p>
+  <strong><%= (t 'blog.content_type') %>:</strong>
+  <%= @blog.content_type %>
+</p>
+<p>
+    <strong><%= (t 'picture') %>:</strong>
+    <%= @blog.picture.url(:thumb) %>
+</p>
+
+<%= link_to (t 'button.edit'), edit_blog_path(@blog), class: "btn btn-sm btn-warning" %> |
+<%= link_to (t 'button.back'), blogs_path, class: "btn btn-sm btn-primary" %>
+
+</div>
+</div>
+</div>

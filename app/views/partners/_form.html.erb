@@ -1,0 +1,78 @@
+<%= form_for(@partner) do |f| %>
+  <% if @partner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@partner.errors.count, "error") %> prohibited this partner from being saved:</h2>
+
+      <ul>
+      <% @partner.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="field">
+            <p align="center"><%= image_tag @partner.image.url(:small_m), class: "img-circle" %></p>
+            <%= label_tag (t 'picture') %>
+            <%= f.file_field :image %>
+            <h5>
+              <small>90x90</small>
+              <% if @partner.new_record? %>
+              <% else %>
+                  <%= link_to_function (t 'crop'), 'crop_open();' %>.
+              <% end %>
+            </h5>
+            <% if @partner.new_record? %>
+            <% else %>
+                <div id="crop_logo" style="display:none" >
+                  <%= render 'crop', :f => f %>
+                </div>
+                <div style="border-bottom: 1px solid lightgray; padding-bottom: 2px;"></div>
+                <script>
+                    function crop_open() {
+                        if (document.getElementById('crop_logo').style.display == 'none') {
+                            document.getElementById("crop_logo").style.display = "inline";
+                        }  else {
+                            document.getElementById('crop_logo').style.display = 'none';
+                        }
+                    }
+                </script>
+            <% end %>
+          </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :site %><br>
+    <%= f.text_field :site %>
+  </div>
+          <div class="row">
+            <div class="col-md-1">
+              <%= f.check_box :visible, checked: true %>
+            </div>
+            <div class="col-md-11">
+              <%= f.label :visible %>
+            </div>
+          </div>
+  <div class="field">
+    <%= f.label :role %><br>
+    <% if @partner.new_record? %>
+        <%= f.select :role, options_for_select([[(t 'role.store'), "Store"], [(t 'role.delivery_company'), "Delivery company"], [(t 'role.partner'), "Partner"], [(t 'partner.companies'), "Company"]], selected: :option) %>
+    <% else %>
+        <%= f.select :role, options_for_select([[(t 'role.store'), "Store"], [(t 'role.delivery_company'), "Delivery company"], [(t 'role.partner'), "Partner"], [(t 'partner.companies'), "Company"]], selected: :option, :selected => @partner.role) %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.select :country, options_for_select([[(t 'country.ukraine'), "Ukraine"], [(t 'country.belarus'), "Belarus"], [(t 'country.russia'), "Russia"], [(t 'country.usa'), "USA"], [(t 'country.canada'), "Canada"], [(t 'country.newzeland'), "Newzeland"], [(t 'country.australia'), "Australia"], [(t 'country.austria'), "Austria"], [(t 'country.belgium'), "Belgium"], [(t 'country.germany'), "Germany"], [(t 'country.greece'), "Greece"], [(t 'country.ireland'), "Ireland"], [(t 'country.spain'), "Spain"], [(t 'country.italy'), "Italy"], [(t 'country.latvia'), "Latvia"], [(t 'country.luxembourg'), "Luxembourg"], [(t 'country.netherlands'), "Netherlands"], [(t 'country.portugal'), "Portugal"], [(t 'country.slovakia'), "Slovakia"], [(t 'country.slovenia'), "Slovenia"], [(t 'country.finlandia'), "Finlandia"], [(t 'country.france'), "France"], [(t 'country.estonia'), "Estonia"]], selected: :option) %>
+  </div>
+  <div class="actions">
+    <%= f.submit (t 'button.ok'), class: "btn btn-sm btn-primary" %>
+  </div>
+<% end %>
+</div>
+</div>
+</div>

@@ -1,0 +1,194 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <% if @stores.blank? %>
+      <% else %>
+          <h4 class="text-center" style="border-bottom: 1px solid lightgray; padding-bottom: 5px;"><%= (t 'partner.stores') %></h4>
+      <% end %>
+      <% @stores.in_groups_of(6).each do |group| %>
+          <div class="row">
+            <% group.each do |store| %>
+                <% if store.nil? %>
+                <% else %>
+                    <div class="col-md-2">
+                      <div class="thumbnail" align="center">
+                        <div class="img-thumbnail" style="border-radius: 100%;">
+                          <%= image_tag store.image.url(:small_m), class: "img-circle" %>
+                        </div>
+                        <div class="caption" style="border-top: 1px solid lightgray;">
+                          <h5 class="text-center"><%= store.name %></h5>
+
+                          <p style="font-size: 12px;" class="text-center"><%= link_to store.site, "http://" + store.site, :target => "_blank" %></p>
+                        </div>
+                      </div>
+                    </div>
+                <% end %>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
+    <div class="col-md-12">
+      <% if @companies.blank? %>
+      <% else %>
+          <h4 class="text-center" style="border-bottom: 1px solid lightgray; padding-bottom: 5px;"><%= (t 'partner.companies') %></h4>
+      <% end %>
+      <% @companies.in_groups_of(6).each do |group| %>
+          <div class="row">
+            <% group.each do |company| %>
+                <% if company.nil? %>
+                <% else %>
+                    <div class="col-md-2">
+                      <div class="thumbnail" align="center">
+                        <div class="img-thumbnail" style="border-radius: 100%;">
+                          <%= image_tag company.image.url(:small_m), class: "img-circle" %>
+                        </div>
+                        <div class="caption" style="border-top: 1px solid lightgray;">
+                          <h5 class="text-center"><%= company.name %></h5>
+
+                          <p style="font-size: 12px;" class="text-center"><%= link_to company.site, "http://" + store.site, :target => "_blank" %></p>
+                        </div>
+                      </div>
+                    </div>
+                <% end %>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
+    <div class="col-md-12">
+      <% if @delivery_companies.blank? %>
+      <% else %>
+          <h4 class="text-center" style="border-bottom: 1px solid lightgray; padding-bottom: 5px;"><%= (t 'partner.delivery_companies') %></h4>
+      <% end %>
+      <% @delivery_companies.in_groups_of(6).each do |group| %>
+          <div class="row">
+            <% group.each do |delivery_company| %>
+                <% if delivery_company.nil? %>
+                <% else %>
+                    <div class="col-md-2">
+                      <div class="thumbnail" align="center">
+                        <div class="img-thumbnail" style="border-radius: 100%;">
+                        <%= image_tag delivery_company.image.url(:small_m), class: "img-circle" %>
+                        </div>
+                        <div class="caption" style="border-top: 1px solid lightgray;">
+                          <h5 class="text-center"><%= delivery_company.name %></h5>
+
+                          <p style="font-size: 12px;" class="text-center"><%= link_to delivery_company.site, "http://" + delivery_company.site, :target => "_blank" %></p>
+                        </div>
+                      </div>
+                    </div>
+                <% end %>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
+    <div class="col-md-12">
+      <% if @partners_r.blank? %>
+      <% else %>
+          <h4 class="text-center" style="border-bottom: 1px solid lightgray; padding-bottom: 5px;"><%= (t 'partner.web') %></h4>
+      <% end %>
+      <% @partners_r.in_groups_of(6).each do |group| %>
+          <div class="row">
+            <% group.each do |partners_r| %>
+                <% if partners_r.nil? %>
+                <% else %>
+                    <div class="col-md-2">
+                      <div class="thumbnail" align="center">
+                        <div class="img-thumbnail" style="border-radius: 100%;">
+                          <%= image_tag partners_r.image.url(:small_m), class: "img-circle" %>
+                        </div>
+                        <div class="caption" style="border-top: 1px solid lightgray;">
+                          <h5 class="text-center"><%= partners_r.name %></h5>
+
+                          <p style="font-size: 12px;" class="text-center"><%= link_to partners_r.site, "http://" + partners_r.site, :target => "_blank" %></p>
+                        </div>
+                      </div>
+                    </div>
+                <% end %>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
+
+
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div align="center">
+      <%= link_to (teleport_partners_path) do %>
+          <button type="button" class="btn btn-default"><%= (t 'role.all') %></button>
+      <% end %>
+      <%= link_to (teleport_partners_country_path("Ukraine")) do %>
+          <button type="button" class="btn btn-default"><%= (t 'country.ukraine') %></button>
+      <% end %>
+      <%= link_to (teleport_partners_country_path("Belarus")) do %>
+          <button type="button" class="btn btn-default"><%= (t 'country.belarus') %></button>
+      <% end %>
+      <%= link_to (teleport_partners_country_path("Russia")) do %>
+          <button type="button" class="btn btn-default"><%= (t 'country.russia') %></button>
+      <% end %>
+      <%= link_to (teleport_partners_country_path("USA")) do %>
+          <button type="button" class="btn btn-default"><%= (t 'country.usa') %></button>
+      <% end %>
+      <%= link_to (teleport_partners_country_path("Canada")) do %>
+          <button type="button" class="btn btn-default"><%= (t 'country.canada') %></button>
+      <% end %>
+      <%= link_to (teleport_partners_country_path("Newzeland")) do %>
+          <button type="button" class="btn btn-default"><%= (t 'country.newzeland') %></button>
+      <% end %>
+      <%= link_to (teleport_partners_country_path("Australia")) do %>
+          <button type="button" class="btn btn-default"><%= (t 'country.australia') %></button>
+      <% end %>
+      <!--
+  <%= link_to (teleport_partners_country_path("Austria")) do %>
+      <button type="button" class="btn btn-default"><%= (t 'country.austria') %></button>
+  <% end %>
+  <%= link_to (teleport_partners_country_path("Belgium")) do %>
+      <button type="button" class="btn btn-default"><%= (t 'country.belgium') %></button>
+  <% end %>
+  <%= link_to (teleport_partners_country_path("Germany")) do %>
+      <button type="button" class="btn btn-default"><%= (t 'country.germany') %></button>
+  <% end %>
+  <%= link_to (teleport_partners_country_path("Greece")) do %>
+      <button type="button" class="btn btn-default"><%= (t 'country.greece') %></button>
+  <% end %>
+  <%= link_to (teleport_partners_country_path("Ireland")) do %>
+      <button type="button" class="btn btn-default"><%= (t 'country.ireland') %></button>
+  <% end %>
+  <%= link_to (teleport_partners_country_path("Spain")) do %>
+      <button type="button" class="btn btn-default"><%= (t 'country.spain') %></button>
+  <% end %>
+  <%= link_to (teleport_partners_country_path("Italy")) do %>
+      <button type="button" class="btn btn-default"><%= (t 'country.italy') %></button>
+  <% end %>
+  <%= link_to (teleport_partners_country_path("Latvia")) do %>
+      <button type="button" class="btn btn-default"><%= (t 'country.latvia') %></button>
+  <% end %>
+  <%= link_to (teleport_partners_country_path("Luxembourg")) do %>
+      <button type="button" class="btn btn-default"><%= (t 'country.luxembourg') %></button>
+  <% end %>
+  <%= link_to (teleport_partners_country_path("Netherlands")) do %>
+      <button type="button" class="btn btn-default"><%= (t 'country.netherlands') %></button>
+  <% end %>
+  <%= link_to (teleport_partners_country_path("Portugal")) do %>
+      <button type="button" class="btn btn-default"><%= (t 'country.portugal') %></button>
+  <% end %>
+  <%= link_to (teleport_partners_country_path("Slovakia")) do %>
+      <button type="button" class="btn btn-default"><%= (t 'country.slovakia') %></button>
+  <% end %>
+  <%= link_to (teleport_partners_country_path("Slovenia")) do %>
+      <button type="button" class="btn btn-default"><%= (t 'country.slovenia') %></button>
+  <% end %>
+  <%= link_to (teleport_partners_country_path("Finlandia")) do %>
+      <button type="button" class="btn btn-default"><%= (t 'country.finlandia') %></button>
+  <% end %>
+  <%= link_to (teleport_partners_country_path("France")) do %>
+      <button type="button" class="btn btn-default"><%= (t 'country.france') %></button>
+  <% end %>
+  <%= link_to (teleport_partners_country_path("Estonia")) do %>
+      <button type="button" class="btn btn-default"><%= (t 'country.estonia') %></button>
+  <% end %>
+  -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <p>
+        <strong><%= (t 'newsletters.language')%>:</strong>
+        <%= @newsletter.language %>
+      </p>
+<p>
+  <strong><%= (t 'newsletters.to')%>:</strong>
+  <%= @newsletter.to %>
+</p>
+
+      <p>
+        <strong><%= (t 'newsletters.subject')%>:</strong>
+        <%= @newsletter.subject %>
+      </p>
+
+<p>
+  <strong><%= (t 'newsletters.blog')%>:</strong>
+  <%= @newsletter.blog_id %>
+</p>
+
+<p>
+  <strong><%= (t 'newsletters.status')%>:</strong>
+  <%= @newsletter.status %>
+</p>
+
+      <p>
+        <strong><%= (t 'newsletters.created_at')%>:</strong>
+        <%= @newsletter.created_at.strftime("%d/%m/%Y - %H:%M:%S") %>
+      </p>
+
+</div>
+</div>
+</div>

@@ -1,0 +1,47 @@
+<h3><p class="text-center"><%= (t 'partner.list_partners')%></p></h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Site</th>
+      <th>Visible</th>
+      <th>Type</th>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <%= will_paginate %>
+  <tbody>
+    <% @partners.each do |partner| %>
+      <tr>
+        <td>
+          <div class="img-thumbnail" style="border-radius: 100%;">
+          <%= image_tag partner.image.url(:small_m), class: "img-circle", style: "with:50px; height:50px;" %>
+          </div>
+        </td>
+        <td><%= partner.name %></td>
+        <td><%= partner.site %></td>
+        <td><%= partner.visible %></td>
+        <td><%= partner.role %></td>
+        <td><%= partner.country %></td>
+        <td><%= link_to (I18n.t 'button.show'), partner, class: "btn btn-sm btn-primary" %></td>
+        <td><%= link_to (I18n.t 'button.edit'), edit_partner_path(partner), class: "btn btn-sm btn-warning" %></td>
+        <td><%= link_to (I18n.t 'button.delete'), partner, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Partner', new_partner_path, class: "btn btn-sm btn-primary" %>
+    </div>
+  </div>
+</div>
+<%= will_paginate %>

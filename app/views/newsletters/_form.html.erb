@@ -1,0 +1,47 @@
+<%= form_for(@newsletter) do |f| %>
+  <% if @newsletter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@newsletter.errors.count, "error") %> prohibited this newsletter from being saved:</h2>
+
+      <ul>
+      <% @newsletter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="field">
+            <%= f.label (t 'newsletters.language') %><br>
+            <%= f.select :language, options_for_select([["EN", "EN"], ["RU", "RU"]], selected: :option) %>
+          </div>
+  <div class="field">
+    <%= f.label (t 'newsletters.to') %><br>
+    <%= f.text_area :to %>
+  </div>
+
+          <div class="field">
+            <%= f.label (t 'newsletters.subject') %><br>
+            <%= f.select :subject, options_for_select([[(t 'newsletters.subject_news'), (t 'newsletters.subject_news')], [(t 'newsletters.subject_specials'), (t 'newsletters.subject_specials')], [(t 'newsletters.subject_saas_news'), (t 'newsletters.subject_saas_news')], [(t 'newsletters.subject_companies_news'), (t 'newsletters.subject_companies_news')]], selected: :option) %>
+          </div>
+  <div class="field">
+    <%= f.label (t 'newsletters.blog') %><br>
+    <%= f.select :blog_id, @blogs.map { |blog| [blog.title, blog.id] } %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label (t 'newsletters.status') %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit (I18n.t 'button.ok'), class: "btn btn-large btn-primary" %>
+  </div>
+
+        </div>
+      </div>
+    </div>
+<% end %>
+

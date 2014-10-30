@@ -1,0 +1,53 @@
+<% content_for(:head) do %>
+    <%= stylesheet_link_tag "jquery.Jcrop" %>
+    <%= javascript_include_tag "jquery.Jcrop.min" %>
+
+    <script type="text/javascript" charset="utf-8">
+        $(function() {
+            $('#cropbox').Jcrop({
+                onChange: update_crop,
+                onSelect: update_crop,
+                setSelect: [0, 0, 500, 500],
+                aspectRatio: 1
+            });
+        });
+
+        function update_crop(coords) {
+            var rx = 90/coords.w;
+            var ry = 90/coords.h;
+            $('#preview').css({
+                width: Math.round(rx * <%= @partner.avatar_geometry(:large_m).width %>) + 'px',
+                height: Math.round(ry * <%= @partner.avatar_geometry(:large_m).height %>) + 'px',
+                marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+                marginTop: '-' + Math.round(ry * coords.y) + 'px'
+            });
+            var ratio = <%= @partner.avatar_geometry(:original).width %> / <%= @partner.avatar_geometry(:large_m).width %>;
+            $("#crop_x").val(Math.round(coords.x * ratio));
+            $("#crop_y").val(Math.round(coords.y * ratio));
+            $("#crop_w").val(Math.round(coords.w * ratio));
+            $("#crop_h").val(Math.round(coords.h * ratio));
+        }
+    </script>
+<% end %>
+<div class="row">
+  <div class="col-md-6">
+    <%= label_tag (t 'avatar') %>
+      <%= image_tag @partner.image.url(:large_m), :id => "cropbox", class: "img-thumbnail" %>
+  </div>
+  <div class="col-md-6">
+    <div align="center"><%= label_tag t ('preview') %></div>
+    <div align="center">
+    <div class="img-thumbnail">
+      <div style="width:90px; height:90px; overflow:hidden;" class="img-circle">
+        <%= image_tag @partner.image.url(:large_m), :id => "preview" %>
+      </div>
+    </div>
+    </div>
+    <div>
+      <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+          <%= f.hidden_field attribute, :id => attribute %>
+      <% end %>
+      <!--<%= f.submit (t 'button.ok'), class: "btn btn-primary btn-xs" %>-->
+    </div>
+  </div>
+</div>
