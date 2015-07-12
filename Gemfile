@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-ruby '2.1.0'
-#ruby-gemset=dent_saas_site
+ruby '2.1.5'
+#ruby-gemset=rails_website_template
 
 gem 'rails', '4.1.5'
 gem 'bootstrap-sass'
@@ -20,7 +20,8 @@ gem 'paperclip', '~> 4.1'
 # Exeption notification if error
 gem 'exception_notification'
 
-# SEO
+gem 'lazyload-rails' #https://github.com/jassa/lazyload-rails
+gem 'phrasing'
 
 
 group :development, :test do
@@ -31,6 +32,13 @@ group :development, :test do
   gem 'spork-rails', '4.0.0'
   gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6'
+  # security tools check
+  gem 'brakeman'
+  # perfomance tools check
+  gem 'rack-mini-profiler'
+  # show error in development mode
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do

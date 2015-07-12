@@ -16,19 +16,6 @@ class PartnersController < ApplicationController
   end
 
   def index_view
-        if params[:country]
-          @partners = Partner.paginate(page: params[:page])
-          @stores = Partner.where(role: "Store", visible: true, country: params[:country]).paginate(page: params[:page])
-          @delivery_companies = Partner.where(role: "Delivery company", visible: true, country: params[:country]).paginate(page: params[:page])
-          @partners_r = Partner.where(role: "Partner", visible: true, country: params[:country]).paginate(page: params[:page])
-          @companies = Partner.where(role: "Company", visible: true, country: params[:country]).paginate(page: params[:page])
-        else
-          @partners = Partner.paginate(page: params[:page])
-          @stores = Partner.where(role: "Store", visible: true).paginate(page: params[:page])
-          @delivery_companies = Partner.where(role: "Delivery company", visible: true).paginate(page: params[:page])
-          @partners_r = Partner.where(role: "Partner", visible: true).paginate(page: params[:page])
-          @companies = Partner.where(role: "Company", visible: true).paginate(page: params[:page])
-        end
     if I18n.locale == :ru || I18n.locale == :ua
 
     else

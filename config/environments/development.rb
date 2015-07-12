@@ -31,7 +31,7 @@ SampleApp::Application.configure do
       :port => 587,
       :authentication => :plain,
       :user_name => "proalab.com@gmail.com",
-      :password => "4l821fn075oI",
+      :password => "",
       :openssl_verify_mode => 'none'
   }
 end

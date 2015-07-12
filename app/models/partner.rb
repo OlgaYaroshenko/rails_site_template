@@ -6,11 +6,6 @@ class Partner < ActiveRecord::Base
   VALID_DOMAIN_REGEX = /[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/ix
   validates :site, presence: true, format: { with: VALID_DOMAIN_REGEX }, length: {maximum: 30}
 
-
-  # Avatar attached
-  #has_attached_file :image, :styles => {:medium => "180x100#", :thumb => "90x50#", :large => "500x500>", :small => "50x50>", :large_m => "500x500#>", :thumb_m => "90x50>", :small_m => "90x90#"}, :default_url => "/images/:style/missing.png", :storage => :s3, :bucket => "teleport_site",
-  #                  :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
-
   has_attached_file :image, :styles => {
       :medium => {:geometry => "180x100#", :processors => [:cropper, :thumbnail]},
       :thumb => {:geometry => "90x50#", :processors => [:cropper, :thumbnail]},

@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Teleport DS site!"
+      flash[:success] = "Welcome to the our website!"
       redirect_to @user
     else
       render 'new'

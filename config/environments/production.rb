@@ -86,7 +86,7 @@ SampleApp::Application.configure do
       :port => 587,
       :authentication => :plain,
       :user_name => "proalab.com@gmail.com",
-      :password => "4l821fn075oI",
+      :password => "",
       :openssl_verify_mode => 'none'
   }
 
@@ -95,8 +95,8 @@ SampleApp::Application.configure do
   config.action_mailer.perform_deliveries = true
   SampleApp::Application.config.middleware.use ExceptionNotification::Rack,
                                                :email => {
-                                                   :email_prefix => "[Store CMS Site ERROR] ",
+                                                   :email_prefix => "[Rails Website Template ERROR] ",
                                                    :sender_address => %{"notifier" <info@proalab.com>},
-                                                   :exception_recipients => %w{support@teleport-ds.com}
+                                                   :exception_recipients => %w{info@proalab.com}
                                                }
 end
