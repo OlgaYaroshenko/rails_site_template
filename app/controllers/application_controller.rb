@@ -17,13 +17,6 @@ class ApplicationController < ActionController::Base
     else
       I18n.locale = (http_accept_language.compatible_language_from(I18n.available_locales)) || (I18n.default_locale)
     end
-#      if I18n.available_locales.include?(extract_locale_from_accept_language_header)
-#        logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
-#        I18n.locale = extract_locale_from_accept_language_header || I18n.default_locale
-#        logger.debug "* Locale set to '#{I18n.locale}'"
-#      else
-#        I18n.default_locale
-#      end
   end
 
   def extract_locale_from_accept_language_header

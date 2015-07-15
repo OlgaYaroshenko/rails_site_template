@@ -3,7 +3,10 @@
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <meta content="<%= I18n.t 'content.tags'[0..244] %>" name="keywords" />
-    <meta name="author" content="Alexandr Basan" />
+    <meta name="author" content="Olga Yaroshenko" />
+
+     <!-- Fonts awsome -->   
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <!-- Theme scripts -->
     <style type="text/css">.gm-style .gm-style-mtc label,.gm-style .gm-style-mtc div{font-weight:400}</style><style type="text/css">.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}</style><link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"><style type="text/css">@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><style type="text/css">.gm-style{font-family:Roboto,Arial,sans-serif;font-size:11px;font-weight:400;text-decoration:none}</style>
@@ -19,11 +22,12 @@
     <link href="stylesheets/owl.theme.css" rel="stylesheet" type="text/css" media="screen">
     <!-- Theme scripts -->
 
+
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
-    <%= favicon_link_tag 'favicon.png' %>
+    <%= favicon_link_tag 'u.png' %>
     <script type="text/javascript">
         $(document).ready(function(){
             $("#myCarousel").carousel({
@@ -37,23 +41,16 @@
     <!--Google Analytics-->
     <%= yield(:head) %>
   </head>
-  <body data-spy="scroll" data-target="#navigation" data-offset="80">
+  <!-- <body data-spy="scroll" data-target="#navigation" data-offset="80"> -->
     <%= content = yield %>
     <!--Back To Top Button-->
-    <% if content.length > 1200 %>
+    <!--<% if content.length > 1200 %>
       <%= link_to("#top") do %>
           <div id="backtotop" style="display: block;">
           </div>
-      <% end %>
+      <% end %>-->
   <% end %>
   <!-- Words -->
-  <% if request.url.include?('blog') %>
-  <% else %>
-      <p></p>
-      <div class="container text-justify" style="color: #999999;" id="delivery_for_all_companies" name="delivery_for_all_companies">
-
-      </div>
-  <% end %>
   <% if current_user.try(:admin?) %>
       <%= render 'layouts/admin' %>
   <% else %>

@@ -1,4 +1,4 @@
-<section id="navigation">
+<!-- <section id="navigation">
   <div id="undefined-sticky-wrapper" class="sticky-wrapper" style="height: 50px;"><div class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
@@ -8,45 +8,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html"><%= t ('main.name')%></a>
       </div>
-      <div class="navbar-collapse collapse">
-
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#home"><%= (I18n.t 'menu.home') %></a></li>
-          <li class=""><a href="#about"><%= (I18n.t 'menu.about_us') %></a></li>
-          <li class=""><a href="#services"><%= (I18n.t 'menu.services') %></a></li>
-          <!--<li class=""><a href="#work">Work</a></li>-->
-
-          <!--<li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle js-activated">Pages <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="blog-list.html">Blog List</a></li>
-              <li><a href="blog-post.html">Blog Post</a></li>
-              <li><a href="single-work.html">Portfolio Single</a></li>
-              <li><a href="soon.html">Coming Soon</a></li>
-            </ul>
-          </li>-->
-          <li class=""><a href="#pricing"><%= (I18n.t 'menu.pricing') %></a></li>
-          <li><%= link_to (I18n.t 'menu.blog'), blogs_path + "#blog" %></li>
-          <li><a href="#contact"><%= (I18n.t 'menu.contact_us_f') %></a></li>
-          <li id="fat-menu" class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <% if I18n.locale == :ru %>
-                  <%= image_tag("ru.png", alt: "RU")+ (" RU") %>
-              <%else %>
-                  <%= image_tag("eng.png", alt: "EN")+ (" EN") %>
-              <% end %>
-              <!--<%= (I18n.t 'menu.language') %> <b class="caret"></b>-->
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to image_tag("eng.png", alt: "EN")+ (" EN"), params.merge({:locale => :en}) %></li>
-              <li><%= link_to image_tag("ru.png", alt: "RU")+ (" RU"), params.merge({:locale => :ru}) %></li>
-            </ul>
-          </li>
-        </ul>
-
-      </div><!--/.nav-collapse -->
     </div><!--/.container -->
-  </div></div>
-</section><!--navigation section end here-->
+ <!--  </div></div>
+</section>navigation section end here -->

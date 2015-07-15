@@ -136,7 +136,7 @@ jQuery("html").niceScroll({
     mousescrollstep: 38,
     cursorwidth: 7,
     cursorborder: 0,
-    cursorcolor: '#35bdf6',
+    cursorcolor: '#FFF',
     autohidemode: false,
     zindex: 9999999,
     horizrailenabled: false,
