@@ -64,9 +64,25 @@ a:hover,
 a:focus {
   outline: 0;
   background: transparent;
-  color: #35bdf6 !important;
+  color: #142346;
   text-decoration: none;
 }
+a.highlight {
+    color: white;
+}
+a.highlight:active {
+    color: #ff;
+}
+a.highlight:hover {
+    color: #142346;
+}
+a.highlight:focus {
+    color: #ff;
+}
+a.highlight:visited {
+    color: #ff;
+}
+
 .padding-80{
 //  padding: 80px 0;
 }
@@ -101,14 +117,14 @@ a:focus {
 #home2 {
   background-color: #444;
   background-position: center 0%;
-  background-size: 100%;
-  background-repeat: repeat;
+  //background-size: 100%;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-image: url(/assets/1200a.jpg);
   display: table;
   width: 100%;
-  height: 250px;
-  min-height: 250px;
+  height: 200px;
+  min-height: 200px;
   overflow-x: hidden;
   overflow-y: hidden;
   vertical-align: middle;
@@ -169,13 +185,6 @@ h2.slide-btm-text{
 .home-arrow-down{
   margin-top:60px;
   margin-bottom: 30px;
-}
-
- .blackiconcolor {
-  color: white;
-}
- .blackiconcolor:hover{
-  color: #142346 !important;
 }
 
  .iconblack {color: #1E3764;}

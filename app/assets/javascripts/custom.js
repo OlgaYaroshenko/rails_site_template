@@ -84,7 +84,7 @@ $(function() {
 /*=========================*/
 /*========portfolio mix====*/
 /*==========================*/
-$('#grid').mixitup();
+// $('#grid').mixitup();
 
 /*=========================*/
 /*========tooltip and popovers====*/
@@ -98,14 +98,15 @@ $("[data-toggle=tooltip]").tooltip();
 /*========Animation on scroll with wow.js====*/
 /*==========================*/
 
-wow = new WOW(
-    {
-        animateClass: 'animated',
-        offset:       100,
-        mobile:       true
-    }
-);
-wow.init();
+// wow = new WOW(
+//     {
+//         animateClass: 'animated',
+//         offset:       100,
+//         mobile:       true
+//     }
+// );
+// wow.init();
+
 
 
 /*=========================*/
@@ -130,18 +131,18 @@ $(function(){
 });
 
 /****************************version v1.1*********************/
-// niceScroll
-jQuery("html").niceScroll({
-    scrollspeed: 50,
-    mousescrollstep: 38,
-    cursorwidth: 7,
-    cursorborder: 0,
-    cursorcolor: '#FFF',
-    autohidemode: false,
-    zindex: 9999999,
-    horizrailenabled: false,
-    cursorborderradius: 0
-});
+// // niceScroll
+// jQuery("html").niceScroll({
+//     scrollspeed: 50,
+//     mousescrollstep: 38,
+//     cursorwidth: 7,
+//     cursorborder: 0,
+//     cursorcolor: '#FFF',
+//     autohidemode: false,
+//     zindex: 9999999,
+//     horizrailenabled: false,
+//     cursorborderradius: 0
+// });
 
 /* ==============================================
  Counter Up

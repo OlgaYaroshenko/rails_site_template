@@ -28,32 +28,16 @@
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
     <%= favicon_link_tag 'u.png' %>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $("#myCarousel").carousel({
-                interval : 5000,
-                pause: false
-            });
-        });
-    </script>
     <!--Google Analytics-->
 
     <!--Google Analytics-->
     <%= yield(:head) %>
   </head>
-  <!-- <body data-spy="scroll" data-target="#navigation" data-offset="80"> -->
-    <%= content = yield %>
-    <!--Back To Top Button-->
-    <!--<% if content.length > 1200 %>
-      <%= link_to("#top") do %>
-          <div id="backtotop" style="display: block;">
-          </div>
-      <% end %>-->
-  <% end %>
+  <body data-spy="scroll" data-target="#navigation" data-offset="80">
+  <%= content = yield %>
   <!-- Words -->
   <% if current_user.try(:admin?) %>
       <%= render 'layouts/admin' %>
-  <% else %>
   <% end %>
       <div class="container">
       <%= render 'layouts/footer' %>
