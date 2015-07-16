@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.1.5'
-#ruby-gemset=rails_website_template
+#ruby-gemset=uanz
 
 gem 'rails', '4.1.5'
 gem 'bootstrap-sass'
