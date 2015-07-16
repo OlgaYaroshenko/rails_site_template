@@ -21,7 +21,7 @@ gem 'paperclip', '~> 4.1'
 gem 'exception_notification'
 
 gem 'lazyload-rails' #https://github.com/jassa/lazyload-rails
-gem 'phrasing'
+#gem 'phrasing'
 
 
 group :development, :test do
