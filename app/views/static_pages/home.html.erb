@@ -34,3 +34,15 @@ $(function() {
   });
 });
 </script>
+
+<script>
+    if(window.innerHeight > window.innerWidth){
+        $('#home').css("background-size", "400%")
+    } else {
+        $('#home').css("background-size", "auto")
+    }
+    $(window).bind('orientationchange', function(event) {
+        //alert('new orientation:' + event.orientation);
+        location.reload(true);
+    });
+</script>
